@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FuneralServiceWH_MAUI.BuildingAddView"
+             xmlns:m="clr-namespace:FuneralServiceWH_MAUI.Models"
+             Title="Edit Building">
+    <ScrollView x:Name="ArtworkScrollView" Orientation="Vertical" VerticalOptions="FillAndExpand" >
+        <StackLayout Orientation="Vertical"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+            <Grid Padding="10" ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+          RowSpacing="10" Margin="20,40,20,0"
+          ColumnSpacing="10" >
+                <Label Text="Name :" FontAttributes="Bold" VerticalOptions="Center" />
+                <Entry x:Name="txtName" Text="{Binding Name}" Grid.Column="1"  />
+
+                <Label Text="Address :" FontAttributes="Bold" Grid.Row="1" VerticalOptions="Center" />
+                <Entry x:Name="daCompleted" Text="{Binding Address}" 
+                        Grid.Row="1" Grid.Column="1" HorizontalOptions="Start"
+                        WidthRequest="200"/>
+
+                <Label Text="City :" FontAttributes="Bold" Grid.Row="2" VerticalOptions="Center" />
+                <Entry x:Name="txtValue" Text="{Binding City}" Grid.Row="2" Grid.Column="1" />
+
+                <Label Text="Region :" FontAttributes="Bold" Grid.Row="3" VerticalOptions="Center" />
+                <Entry x:Name="txtValue2" Text="{Binding Region}" Grid.Row="3" Grid.Column="1" />
+
+                <Label Text="Postal Code :" FontAttributes="Bold" Grid.Row="4" VerticalOptions="Center" />
+                <Entry x:Name="txtValue3" Text="{Binding PostalCode}" Grid.Row="4" Grid.Column="1" />
+
+            </Grid>
+
+            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Vertical" 
+                         Margin="20,0,20,5" Padding="15,10,15,10">
+                <!--<Label Text="Description:" VerticalOptions="Center" HorizontalOptions="Start" />
+                <Editor x:Name="edtDescription" Text="{Binding Model.Name}" 
+                    AutoSize="TextChanges" />-->
+                <ActivityIndicator x:Name="Loading" Grid.Row="1" Grid.ColumnSpan="2" 
+                    HeightRequest="100" WidthRequest="100" IsRunning="true" />
+                <StackLayout Orientation="Vertical" >
+                    <Button Text="Save" Clicked="SaveClicked" Margin="5,20,5,5"  />
+                    <Button Text="Cancel" Clicked="CancelClicked" Margin="5,5,5,5" />
+                    <Button x:Name="btnDelete" Text="Delete" BackgroundColor="Red" Clicked="DeleteClicked" Margin="5,5,5,5" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

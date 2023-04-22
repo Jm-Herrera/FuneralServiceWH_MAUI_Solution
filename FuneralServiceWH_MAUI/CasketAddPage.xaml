@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:m="clr-namespace:FuneralServiceWH_MAUI.Models"
+             x:Class="FuneralServiceWH_MAUI.CasketAddPage"
+             Title="Casket Details Page">
+
+    <ScrollView x:Name="ArtworkScrollView" Orientation="Vertical" VerticalOptions="FillAndExpand" >
+        <StackLayout Orientation="Vertical"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+            <Grid Padding="10" ColumnDefinitions="Auto,Auto,Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+          RowSpacing="10" Margin="20,20,20,20"
+          ColumnSpacing="10" >
+                <Label Text="Model:" VerticalOptions="Center" />
+                <Picker x:Name="ddlModel"   
+                    ItemsSource="{Binding models}"
+                    ItemDisplayBinding="{Binding Name}"                     
+                    Grid.Column="1" 
+                    WidthRequest="200"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start">
+                </Picker>
+
+                <Label Text="Color:" Grid.Row="1" VerticalOptions="Center" />
+                <Picker x:Name="ddlColor"   
+                    ItemsSource="{Binding colors}"
+                    ItemDisplayBinding="{Binding Name}" 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    WidthRequest="200"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start">
+                </Picker>
+
+                <Label Text="Manufacturer:" Grid.Row="2" VerticalOptions="Center" />
+                <Picker x:Name="ddlManufacturer" 
+                    ItemsSource="{Binding manufacturer}"
+                    ItemDisplayBinding="{Binding Name}" 
+                    Grid.Row="2" 
+                    Grid.Column="1" 
+                    WidthRequest="200"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start">
+                </Picker>
+
+
+                <Label Text="Building:" Grid.Row="3" VerticalOptions="Center" />
+                <Picker x:Name="ddlBuilding"  
+                    ItemsSource="{Binding buildings}"
+                    ItemDisplayBinding="{Binding Name}" 
+                    Grid.Row="3" 
+                    Grid.Column="1" 
+                    WidthRequest="200"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start">
+                </Picker>
+
+
+                <Label Text="Created Date:" Grid.Row="4" VerticalOptions="Center" />
+                <DatePicker x:Name="txtValue2" Date="{Binding Casket.CreatedDate}" Grid.Row="4" Grid.Column="1" />
+
+            </Grid>
+            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Vertical" 
+                         Margin="20,5,20,5" Padding="15,10,15,10">
+
+                <StackLayout Orientation="Vertical" >
+
+                    <!--<Button Text="Save" Clicked="SaveClicked" Margin="5,20,5,5"  />-->
+                    <Button Text="Return to List" Clicked="CancelClicked" Margin="5,5,5,5" />
+                    <!--<Button x:Name="btnDelete" Text="Delete" BackgroundColor="Red" Clicked="DeleteClicked" Margin="5,5,5,5" />-->
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+
+
+</ContentPage>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:m="clr-namespace:FuneralServiceWH_MAUI.Models"
+             x:Class="FuneralServiceWH_MAUI.casketDetailsPage"
+             Title="Casket Details Page">
+
+    <ScrollView x:Name="ArtworkScrollView" Orientation="Vertical" VerticalOptions="FillAndExpand" >
+        <StackLayout Orientation="Vertical"  VerticalOptions="Start" HorizontalOptions="FillAndExpand" >
+            <Grid Padding="10" ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+          RowSpacing="10" Margin="20,20,20,20"
+          ColumnSpacing="10" >
+                <Label Text="Model:" FontAttributes="Bold" VerticalOptions="Center" />
+                <Label x:Name="txtName" Text="{Binding Model.Name}" Grid.Column="1"  />
+
+                <Label Text="Color:" FontAttributes="Bold" Grid.Row="1" VerticalOptions="Center" />
+                <Label x:Name="daCompleted" Text="{Binding Color.Name}" 
+                        Grid.Row="1" Grid.Column="1" HorizontalOptions="Start"
+                        WidthRequest="200"/>
+
+                <Label Text="Manufacturer:" FontAttributes="Bold" Grid.Row="2" VerticalOptions="Center" />
+                <Label x:Name="txtValue" Text="{Binding Manufacturer.Name}" Grid.Row="2" Grid.Column="1" />
+
+
+                <Label Text="Building:" FontAttributes="Bold" Grid.Row="3" VerticalOptions="Center" />
+                <Label x:Name="txtValue3" Text="{Binding Building.Name}" Grid.Row="3" Grid.Column="1" />
+                <!--<Picker x:Name="ddlArtTypes"   
+                    ItemDisplayBinding="{Binding Name}" 
+                    Grid.Row="3" 
+                    Grid.Column="1" 
+                    WidthRequest="200"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start">
+                </Picker>-->
+
+                <Label Text="Created on:" FontAttributes="Bold" Grid.Row="4" VerticalOptions="Center" />
+                <Label x:Name="txtValue2" Text="{Binding CreatedDate, StringFormat='{0:MMMM dd, yyyy}'}" Grid.Row="4" Grid.Column="1" />
+
+            </Grid>
+            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Orientation="Vertical" 
+                         Margin="20,5,20,5" Padding="15,10,15,10">
+                <!--<Label Text="Description:" VerticalOptions="Center" HorizontalOptions="Start" />
+                <Editor x:Name="edtDescription" Text="{Binding Model.Name}" 
+                    AutoSize="TextChanges" />-->
+
+                <StackLayout Orientation="Vertical" >
+                    <Button Text="Edit" Clicked="EditClicked" Margin="5,20,5,5"  />
+                    <Button Text="Return to List" Clicked="CancelClicked" Margin="5,5,5,5" />
+                    <Button x:Name="btnDelete" Text="Delete" BackgroundColor="Red" Clicked="DeleteClicked" Margin="5,5,5,5" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+
+
+</ContentPage>

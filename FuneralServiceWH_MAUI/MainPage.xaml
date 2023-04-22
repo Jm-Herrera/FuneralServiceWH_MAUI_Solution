@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FuneralServiceWH_MAUI.MainPage"
+             xmlns:m="clr-namespace:FuneralServiceWH_MAUI.Models" 
+             IconImageSource="plus.png" 
+             Title="El Nazareno">
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnAdd" Text="+" Clicked="btnAdd_Clicked" IconImageSource="plus.png"  />
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        
+        <Grid RowDefinitions="Auto,Auto, *"
+              ColumnDefinitions="Auto, *"
+              Padding="10"
+              RowSpacing="10"
+              ColumnSpacing="10">
+            <Button Text="Add Building" Clicked="btnAddBuilding_Clicked" BackgroundColor="Green" Margin="10" Grid.Column="1" VerticalOptions="Center"/>
+
+            <Label Text="Filter by Building" FontAttributes= "Italic"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Margin="20" 
+                   VerticalOptions="Center" />
+            <Picker x:Name="ddlArtTypes"  Grid.Column="1" Grid.Row="1"
+                    VerticalOptions="Center"
+                    ItemsSource="{Binding buildings}"
+                    ItemDisplayBinding="{Binding Name}" 
+                    SelectedIndexChanged="ddlArtTypes_SelectedIndexChanged">
+            </Picker>
+            <ActivityIndicator x:Name="Loading" Grid.Row="2" Grid.ColumnSpan="2" 
+                    HeightRequest="100" WidthRequest="100" IsRunning="true" />
+            <ListView Grid.Row="2" Grid.ColumnSpan="2" Margin="15,0,10,0"
+                    ItemsSource="{Binding ListBuildings}"
+                    SelectionMode="Single"
+                    ItemSelected="BuildingSelected"
+                    RowHeight="60"
+                    x:Name="artworkList">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type m:Building}">
+                        <TextCell Text="{Binding Name}" Detail="{Binding Caskets}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+
+
+</ContentPage>
